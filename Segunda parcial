@@ -1,0 +1,156 @@
+#Codigos vistos en clase
+1. Clase que muestre el año de nacimiento,nombre y apeliido materno y paterno de una persona
+1.2 se hace un void main con los datos de la persona y luego creando la clase persona donde almacenara dichos valores introducidos del main
+1.3
+void main(List<String> args) {
+  Persona est = new Persona();
+  est.nombre = "Alex";
+  est.apaterno = "Mata";
+  est.amaterno = "Lopez";
+  est.aNacimiento = 1971;
+  est.showName(est.nombre, est.apaterno, est.amaterno);
+  print("Tienes ${est.calcularEdad(est.aNacimiento)} años");
+  est.showName2();
+}
+class Persona {
+  String nombre = " ";
+  String apaterno = " ";
+  String amaterno = " ";
+  int aNacimiento = 0;
+
+  int calcularEdad(int aNacimiento) => 2022 - aNacimiento;
+  void showName(String nombre, String apaterno, String amaterno) {
+   print("$nombre $apaterno $amaterno");
+  }
+ void showName2(){
+   print("$apaterno $amaterno $nombre"); 
+ }
+}
+2. Clase de calculadora
+2.2 en el void main se introducen los valores predeterminados de a y b definiendo el tipo de la operacion para las variables y se creara la clase mandando a
+llamar las operaciones
+2.3
+void main(List<String> args){
+  Calculadora miCalculadora = Calculadora();
+  miCalculadora.a = 10;
+  miCalculadora.b = 5;
+  int res = miCalculadora.suma(miCalculadora.a, miCalculadora.b);
+  print("${miCalculadora.a} + ${miCalculadora.b}  = $res");
+  int Res = miCalculadora.resta(miCalculadora.a, miCalculadora.b);
+  print("${miCalculadora.a} - ${miCalculadora.b}  = $Res");
+  int resultado = miCalculadora.multi(miCalculadora.a, miCalculadora.b);
+  print("${miCalculadora.a} * ${miCalculadora.b}  = $resultado");
+  double Resultado = miCalculadora.divi(miCalculadora.a, miCalculadora.b);
+  print("${miCalculadora.a} / ${miCalculadora.b}  = $Resultado");
+}
+class Calculadora {
+int a = 0;
+int b = 0;  
+int suma(int a, int b) => a + b;
+int resta(int a, int b) => a - b;
+int multi(int a, int b) => a * b;
+double divi(int a, int b) => a / b;
+}
+3. Clase en la que mande a llamar el nombre del estudiante,carrera que estudia,numero de cuenta y semestre
+3.2 se hace el main en el que guarde la edad del estudiante,nombre,carrera,numero de cuenta y semestre, se haga la clase usuario en donde
+guarde su nombre y edad y la clase estudiante donde guarde la carrera,numero de cuenta y semestre en el que esta
+3.3
+void main() {
+   var usuario1 = User();
+   usuario1.nombre = "Alex";
+   usuario1.edad = 50;
+   usuario1.reporte();
+   var estudiante1 = Estudiante();
+   estudiante1.carrera = "Ingeneria en computacion inteligente";
+   estudiante1.noCuenta = "20185466";
+   estudiante1.semestre = "3ero";
+   estudiante1.reporte();
+}
+class User {
+  //propiedades  
+  String? nombre;
+  int? edad;  
+  //metodos
+  void reporte(){
+    print(nombre);
+    print(edad);
+  }
+}
+class Estudiante{
+    String? noCuenta;
+    String? carrera;
+    String? semestre;
+  void reporte(){
+    print("Carrera: $carrera");
+    print("No de Cuenta: $noCuenta") ;
+    print("semestre: $semestre");
+  }  
+}
+Aqui hay otro codigo similar solo que usando la encapsulacion es decir, haciendo privadas las propiedades de la clase a lo que yo puedo explicarlo
+
+void main(List<String> args){  
+  User usuario1 = User();
+  usuario1.nombre = "Alex";
+  usuario1.edad = 15; 
+  usuario1.reporte(); 
+}
+class User {
+  String? _nombre;
+  int? _edad;
+  void set nombre(nombre){
+    _nombre = nombre;
+ }
+  void set edad(int edad){
+    _edad = edad;
+  }
+  String get nombre {
+    return _nombre!; 
+    }
+  void reporte(){
+  print(_nombre); 
+  print(_edad); 
+ }
+}
+
+4. Codigo en el que se crea el objeto carro y se escriban las propiedades del carro y sus metodos
+4.2 en el main se escriban caracteristicas del vehiculo como lo son su modelo,marca,color y numero de llantas, se hace la clase de vehciulo definiendo
+las propiedades de las variables del objeto con ayuda de los getters y setters,como metodos hacemos un void seguido de la accion y por ultimo un void show
+para hacer aparecer en pantalla las propiedades
+4.3
+void main(List<String> args) {
+   Vehiculo Elpontiac = Vehiculo();
+   Elpontiac.llantas = 4;
+   Elpontiac.Color = "Rojo";
+   Elpontiac.Modelo = "2015";
+   Elpontiac.Marca = "Pontiac";
+   Elpontiac.showVehiculo(); 
+ }
+class Vehiculo {
+  int? _llantas;
+  String? _Color;
+  String? _Modelo;
+  String? _Marca;
+  void set llantas(int llantas) => _llantas = llantas;
+  void set Color(String Color) => _Color = Color;
+  void set Modelo(String Modelo) => _Modelo = Modelo;
+  void set Marca(String Marca) => _Marca = Marca;
+  int get llantas => _llantas!;
+  String get Color => _Color!;
+  String get Modelo => _Modelo!;
+  String get Marca => _Marca!;
+  void arrancar(){
+    print("El carro arrancó");
+  }
+  void correr(){
+    print("El carro corrió");
+  }
+  void frenar(){
+    print("Freno el carro");
+  }
+  void showVehiculo(){
+    print("Marca : ${_Marca}");
+    print("Modelo : ${_Modelo}");
+    print("Color : ${_Color}"); 
+    print("Numero de llantas : ${_llantas}");
+  }
+}
